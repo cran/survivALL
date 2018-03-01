@@ -9,7 +9,7 @@ library(ggplot2)
 data(nki_subset)
 
 ## ------------------------------------------------------------------------
-xpr_vec <- exprs(nki_subset)["NM_001758", ] #expression vector for CCND1 (a marker of proliferation)
+xpr_vec <- exprs(nki_subset)["NM_020974", ] #expression vector for SCUBE2 (anti-correlated with proliferation)
 
 plotALL(
         measure = xpr_vec, #expression data
@@ -17,26 +17,24 @@ plotALL(
         time = "t.dmfs", #time-to-outcome
         event = "e.dmfs", #outcome type
         bs_dfr = c(), #thresholding data would go here
-        measure_name = "CCND1", #our gene's name
-        plot_range = "auto", #we can specify the plots y-axis range here. This makes comparing plots easier
-        scale_upper = "auto", #similarly we can specify an upper limit to our pvalue colour scale
-        title = "CCND1 prognostic capacity in a mixed\npopulation of invasive breast cancer samples", #plot title
-        legend = "bottom", #legend position, one of 'top', 'right', 'bottom', 'left' or 'none'
-        axis_text = TRUE #axis text can be removed to more easily compare multiple plots side-by-side
+        measure_name = "SCUBE2", #our gene's name
+        title = "SCUBE2 prognostic capacity in a mixed\npopulation of invasive breast cancer samples", #plot title
         )
 
 ## ------------------------------------------------------------------------
+a_random_x_axis_value <- 123
+
 plotALL(measure = xpr_vec, 
         srv = pData(nki_subset), 
         time = "t.dmfs", 
         event = "e.dmfs", 
         bs_dfr = c(),
-        measure_name = "CCND1", 
-        title = "CCND1 prognostic capacity in a mixed\npopulation of invasive breast cancer samples") + 
-    geom_vline(xintercept = 290, linetype = 5)
+        measure_name = "SCUBE2", 
+        title = "SCUBE2 prognostic capacity in a mixed\npopulation of invasive breast cancer samples") + 
+    geom_vline(xintercept = a_random_x_axis_value, linetype = 5)
 
 ## ---- fig.width = 8------------------------------------------------------
-geneset <- data.frame(refseq_id = c("NM_001758", "NM_005252", "NM_004448"), hgnc_id = c("CCND1", "FOS", "ERBB2"), stringsAsFactors = FALSE)
+geneset <- data.frame(refseq_id = c("NM_020974", "NM_002051", "NM_004448"), hgnc_id = c("SCUBE2", "GATA3", "ERBB2"), stringsAsFactors = FALSE)
 
 xpr_lst <- lapply(geneset$refseq_id, function(id){
                 exprs(nki_subset)[id,]
@@ -51,18 +49,15 @@ plot_lst <- lapply(geneset$hgnc_id, function(id){
                                event = "e.dmfs", #outcome type
                                bs_dfr = c(), #thresholding data 
                                measure_name = id, #our gene's name
-                               plot_range = c(-2.5, 2.5), #we can specify the plots y-axis range here. This makes comparing plots easier
-                               scale_upper = "auto", #similarly we can specify an upper limit to our pvalue colour scale
-                               title = id, #plot title
-                               legend = "bottom", #legend position, one of 'top', 'right', 'bottom', 'left' or 'none'
-                               axis_text = TRUE #axis text can be removed to more easily compare multiple plots side-by-side
-                               )
+                               title = id #plot title
+                               ) + 
+                           ylim(-2.5, 2.5)  
         })
 
 ## ---- eval = FALSE-------------------------------------------------------
 #  cowplot::plot_grid(plotlist = plot_lst, nrow = 1)
 
-## ---- echo = FALSE-------------------------------------------------------
+## ---- echo = FALSE, fig.height = 5, fig.width = 11-----------------------
 p <- cowplot::plot_grid(plotlist = plot_lst, nrow = 1)
 print(p)
 
@@ -73,8 +68,7 @@ survivall_out <- survivALL(
                            time = "t.dmfs", #time-to-outcome
                            event = "e.dmfs", #outcome type
                            bs_dfr = c(), #thresholding data
-                           measure_name = "CCND1", #our gene's name
-                           n_sd = 1.96 #number of standard deviations that define the threshold width - 1.96 represents 95% of random associations fall within the thresholds
+                           measure_name = "SCUBE2" #our gene's name
                            )
 
 ## ---- eval = FALSE-------------------------------------------------------
@@ -93,8 +87,7 @@ survivall_lst <- lapply(geneset$hgnc_id, function(id){
                                       time = "t.dmfs", #time-to-outcome
                                       event = "e.dmfs", #outcome type
                                       bs_dfr = c(), #thresholding data
-                                      measure_name = id, #our gene's name
-                                      n_sd = 1.96 #number of standard deviations that define the threshold width - 1.96 represents 95% of random associations fall within the thresholds
+                                      measure_name = id #our gene's name
                                       )
                            })
 

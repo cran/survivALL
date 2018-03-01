@@ -31,14 +31,13 @@ allHR <- function(measure, srv, time = "Time", event = "Event", log2HR = TRUE) {
     })
     
     # Calculate hazard ratios
-    hr_vec <- suppressWarnings(sapply(separations, function(x) {
+    hr_vec <- sapply(separations, function(x) {
         survcomp::hazard.ratio(x, srv_time, srv_event)$hazard.ratio
-    }))
+    })
     #a terminal NA makes the result play well with other variables - e.g. the 
     #number of HRs is n-1 samples, so to align HRs against samples the 
     #additional NA makes this possible
     hr_vec <- c(hr_vec, NA) 
-    
     
     # Return logged hazard ratios
     if (isTRUE(log2HR)) {

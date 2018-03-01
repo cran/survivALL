@@ -52,14 +52,16 @@ allPvals <- function(measure,
     }
 
     # Calculate P-values 
-    pvals <- suppressWarnings(sapply(separations, function(x) {
+    pvals <- sapply(separations, function(x) {
                     cox_form <- stats::as.formula(paste("srv_obj ~", cox_vars))
                     summary(survival::coxph(cox_form, srv))$logtest[["pvalue"]]
-    }))
+    })
     #terminal NA makes the result play well with other variables - e.g. the 
     #number of pvalues are n-1 samples, so to align HRs against samples the 
     #additional NA makes this possible
-    pvals <- c(pvals, NA)   
-    pvals
+    #pvals_adj <- p.adjust(pvals, method = "fdr")
+    #pvals_out <- c(pvals_adj, NA)   
+    pvals_out <- c(pvals, NA)
+    pvals_out
 }
 
