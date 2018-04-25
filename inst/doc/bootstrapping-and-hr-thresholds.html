@@ -27,7 +27,7 @@ body {
 
 <h1 id="bootstrapping-and-hazard-ratio-thresholds">Bootstrapping and hazard ratio thresholds</h1>
 <p>Dominic Pearce, The Institute of Genetics and Molecular Medicine, The University of Edinburgh<br />
-2018-03-01</p>
+2018-04-25</p>
 <p> </p>
 <h2 id="bootstrapping-and-hazard-ratio-thresholds-1">Bootstrapping and hazard ratio thresholds</h2>
 <p> </p>
@@ -53,7 +53,7 @@ bs_mtx &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class=
                                      <span class="dt">event =</span> <span class="st">&quot;e.dmfs&quot;</span>)
             }
 )</code></pre></div>
-<p>user system elapsed 24.175 0.319 24.494</p>
+<p>user system elapsed 24.313 0.296 24.632</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
 <span class="kw">kable</span>(bs_mtx[<span class="dv">1</span>:<span class="dv">20</span>, <span class="dv">1</span>:<span class="dv">5</span>])</code></pre></div>
 <table>
@@ -66,137 +66,137 @@ bs_mtx &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class=
 <td align="right">NA</td>
 </tr>
 <tr class="even">
+<td align="right">-0.4014227</td>
 <td align="right">NA</td>
-<td align="right">-0.3599171</td>
-<td align="right">-1.4197454</td>
 <td align="right">NA</td>
-<td align="right">-2.0119266</td>
-</tr>
-<tr class="odd">
-<td align="right">0.4293359</td>
+<td align="right">-0.4576410</td>
 <td align="right">NA</td>
-<td align="right">-0.3909950</td>
-<td align="right">0.0787256</td>
-<td align="right">-2.4384185</td>
-</tr>
-<tr class="even">
-<td align="right">0.8579847</td>
-<td align="right">-0.7296944</td>
-<td align="right">0.3616208</td>
-<td align="right">-0.7586645</td>
-<td align="right">-1.5438291</td>
 </tr>
 <tr class="odd">
-<td align="right">0.2333717</td>
-<td align="right">-0.1874635</td>
-<td align="right">0.6971450</td>
-<td align="right">-1.1601894</td>
-<td align="right">-1.0832225</td>
+<td align="right">0.2984494</td>
+<td align="right">-0.4491361</td>
+<td align="right">NA</td>
+<td align="right">0.0792404</td>
+<td align="right">-0.8907620</td>
 </tr>
 <tr class="even">
-<td align="right">0.4599159</td>
-<td align="right">0.2391921</td>
-<td align="right">0.8537166</td>
-<td align="right">-1.1601894</td>
-<td align="right">-0.7796579</td>
+<td align="right">-0.5303545</td>
+<td align="right">0.0990314</td>
+<td align="right">0.4857405</td>
+<td align="right">0.7285488</td>
+<td align="right">NA</td>
 </tr>
 <tr class="odd">
-<td align="right">0.7513465</td>
-<td align="right">-0.1850448</td>
-<td align="right">-0.0300880</td>
-<td align="right">-0.8377632</td>
-<td align="right">-1.1452012</td>
+<td align="right">-0.1702408</td>
+<td align="right">0.6413651</td>
+<td align="right">0.8452752</td>
+<td align="right">1.0275861</td>
+<td align="right">-0.7785881</td>
 </tr>
 <tr class="even">
-<td align="right">0.9436336</td>
-<td align="right">0.0803095</td>
-<td align="right">-0.4747348</td>
-<td align="right">-0.5768162</td>
-<td align="right">-1.3095617</td>
+<td align="right">0.1814099</td>
+<td align="right">0.9289172</td>
+<td align="right">1.1349544</td>
+<td align="right">0.0946139</td>
+<td align="right">-0.3816460</td>
 </tr>
 <tr class="odd">
-<td align="right">0.3539460</td>
-<td align="right">-0.1838493</td>
-<td align="right">-0.1934629</td>
-<td align="right">-0.8438445</td>
-<td align="right">-1.0661074</td>
+<td align="right">-0.1740861</td>
+<td align="right">-0.0305109</td>
+<td align="right">0.1757499</td>
+<td align="right">0.3099642</td>
+<td align="right">-0.9078913</td>
 </tr>
 <tr class="even">
-<td align="right">0.0105186</td>
-<td align="right">-0.0278590</td>
-<td align="right">0.0189760</td>
-<td align="right">-0.7870098</td>
-<td align="right">-1.3212246</td>
+<td align="right">0.0197442</td>
+<td align="right">0.3146530</td>
+<td align="right">0.4616417</td>
+<td align="right">-0.2501668</td>
+<td align="right">-0.4518784</td>
 </tr>
 <tr class="odd">
-<td align="right">-0.3091995</td>
-<td align="right">-0.1991649</td>
-<td align="right">-0.3605486</td>
-<td align="right">-0.5732683</td>
-<td align="right">-1.3766364</td>
+<td align="right">-0.3744622</td>
+<td align="right">0.5120723</td>
+<td align="right">-0.0896996</td>
+<td align="right">-0.4760801</td>
+<td align="right">-0.3932269</td>
 </tr>
 <tr class="even">
-<td align="right">-0.1773941</td>
-<td align="right">-0.0821620</td>
-<td align="right">-0.1964635</td>
-<td align="right">-0.6844629</td>
-<td align="right">-1.5170263</td>
+<td align="right">-0.1658159</td>
+<td align="right">0.6869374</td>
+<td align="right">0.0243721</td>
+<td align="right">-0.3161967</td>
+<td align="right">-0.1424456</td>
 </tr>
 <tr class="odd">
-<td align="right">-0.0620164</td>
-<td align="right">-0.3388317</td>
-<td align="right">0.0018052</td>
-<td align="right">-0.5345262</td>
-<td align="right">-1.4735722</td>
+<td align="right">-0.0318268</td>
+<td align="right">0.8520492</td>
+<td align="right">0.0243721</td>
+<td align="right">-0.1669160</td>
+<td align="right">0.1284438</td>
 </tr>
 <tr class="even">
-<td align="right">-0.0058549</td>
-<td align="right">-0.3108250</td>
-<td align="right">0.2082813</td>
-<td align="right">-0.3803533</td>
-<td align="right">-1.5456743</td>
+<td align="right">0.1789310</td>
+<td align="right">1.0547973</td>
+<td align="right">0.1929272</td>
+<td align="right">-0.3623228</td>
+<td align="right">0.3106466</td>
 </tr>
 <tr class="odd">
-<td align="right">0.1339785</td>
-<td align="right">-0.1846160</td>
-<td align="right">-0.0421507</td>
-<td align="right">-0.1672836</td>
-<td align="right">-1.3871177</td>
+<td align="right">0.2946136</td>
+<td align="right">1.1722670</td>
+<td align="right">0.4310035</td>
+<td align="right">-0.2210120</td>
+<td align="right">0.4851842</td>
 </tr>
 <tr class="even">
-<td align="right">0.2384631</td>
-<td align="right">-0.3569942</td>
-<td align="right">-0.2797757</td>
-<td align="right">-0.0598791</td>
-<td align="right">-1.4304986</td>
+<td align="right">0.3954521</td>
+<td align="right">NA</td>
+<td align="right">0.6013607</td>
+<td align="right">-0.0617779</td>
+<td align="right">0.6461764</td>
 </tr>
 <tr class="odd">
-<td align="right">0.3223261</td>
-<td align="right">-0.2300988</td>
-<td align="right">-0.4758438</td>
-<td align="right">-0.3050656</td>
-<td align="right">-1.2893195</td>
+<td align="right">0.5589154</td>
+<td align="right">NA</td>
+<td align="right">0.7511898</td>
+<td align="right">-0.0617779</td>
+<td align="right">0.8070691</td>
 </tr>
 <tr class="even">
-<td align="right">0.0689436</td>
-<td align="right">-0.4189298</td>
-<td align="right">-0.3463617</td>
-<td align="right">-0.2033154</td>
-<td align="right">-1.1232568</td>
+<td align="right">0.6965117</td>
+<td align="right">NA</td>
+<td align="right">0.8487477</td>
+<td align="right">-0.3131932</td>
+<td align="right">0.4366925</td>
 </tr>
 <tr class="odd">
-<td align="right">0.1859467</td>
-<td align="right">-0.3055634</td>
-<td align="right">-0.1930128</td>
-<td align="right">-0.1517074</td>
-<td align="right">-1.1641397</td>
+<td align="right">0.3651488</td>
+<td align="right">NA</td>
+<td align="right">0.9855458</td>
+<td align="right">-0.1528381</td>
+<td align="right">0.5390877</td>
 </tr>
 <tr class="even">
-<td align="right">0.2701165</td>
-<td align="right">-0.2220612</td>
-<td align="right">-0.3896788</td>
-<td align="right">-0.3678349</td>
-<td align="right">-0.9975935</td>
+<td align="right">0.2145058</td>
+<td align="right">1.1179661</td>
+<td align="right">1.0938748</td>
+<td align="right">-0.0143247</td>
+<td align="right">0.6437619</td>
+</tr>
+<tr class="odd">
+<td align="right">0.0621976</td>
+<td align="right">1.2047041</td>
+<td align="right">0.7007348</td>
+<td align="right">-0.1846323</td>
+<td align="right">0.6883963</td>
+</tr>
+<tr class="even">
+<td align="right">0.1542357</td>
+<td align="right">1.2857949</td>
+<td align="right">0.7851356</td>
+<td align="right">-0.1051644</td>
+<td align="right">0.8163849</td>
 </tr>
 </tbody>
 </table>
